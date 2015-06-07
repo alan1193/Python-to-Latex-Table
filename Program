@@ -1,0 +1,37 @@
+def table(A):
+    #A is the matrix of columms, I mean
+    # A = [column 1, column 2, ... column n]
+    
+    
+    # I WILL BE COMMENTING MORE LINES SOON.
+    #
+    #
+    #
+    #
+    
+    tex = "\\begin{tabular} {|"
+    k = 0
+    while k < len(A):
+        tex = tex + "c|"
+        k = k + 1
+    tex = tex + "}\n" 
+    
+    k = 0
+    j = 0
+    while k < len(A[0]):
+        while j < len(A):
+            tex = tex + str(A[j][k])
+            if j != len(A) - 1:
+                tex = tex + "&"
+            j = j + 1
+        j = 0
+        tex = tex + "\\\ \hline \n"
+        k = k + 1
+    
+    tex = tex + "\end{tabular}"
+    
+    archivo = open("Table", "w")
+    archivo.write(tex)
+    archivo.close()        
+    return tex
+    
